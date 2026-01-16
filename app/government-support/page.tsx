@@ -1,6 +1,6 @@
 'use client'
 
-import { NextSeo } from 'next-seo'
+import NextSeoWrapper from '@/src/components/NextSeoWrapper'
 import { seoPresets } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic'
 export default function GovernmentSupportPage() {
   return (
     <>
-      <NextSeo {...seoPresets.governmentSupport()} />
+      <NextSeoWrapper {...seoPresets.governmentSupport()} />
       <main style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
         <h1>정부지원금 정보</h1>
         <p>

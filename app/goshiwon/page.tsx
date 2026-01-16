@@ -1,6 +1,6 @@
 'use client';
 
-import { NextSeo } from 'next-seo';
+import NextSeoWrapper from '@/src/components/NextSeoWrapper';
 import { generateDynamicSEO } from '@/lib/seo';
 import JSONLD from '@/src/components/JSONLD';
 
@@ -23,7 +23,7 @@ export default function GoshiwonPage() {
 
   return (
     <>
-      <NextSeo {...seoConfig} />
+      <NextSeoWrapper {...seoConfig} />
       <JSONLD
         type="Article"
         data={{

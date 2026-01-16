@@ -1,6 +1,6 @@
 'use client'
 
-import { NextSeo } from 'next-seo'
+import NextSeoWrapper from '@/src/components/NextSeoWrapper'
 import { seoPresets } from '@/lib/seo'
 import { use } from 'react'
 
@@ -16,7 +16,7 @@ export default function TaxSchedulePage({ params }: PageProps) {
 
   return (
     <>
-      <NextSeo {...seoPresets.taxSchedule(yearNumber)} />
+      <NextSeoWrapper {...seoPresets.taxSchedule(yearNumber)} />
       <main style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
         <h1>{yearNumber}년 사업자 세금 일정</h1>
         <p>

@@ -1,6 +1,6 @@
 'use client';
 
-import { NextSeo } from 'next-seo';
+import { useEffect, useState } from 'react';
 import { generateDynamicSEO } from '@/lib/seo';
 
 interface SEOProps {
@@ -177,6 +177,16 @@ export default function DynamicSEO({
     ],
   };
 
+  const [NextSeo, setNextSeo] = useState<any>(null);
+
+  useEffect(() => {
+    // 클라이언트에서만 next-seo 로드
+    import('next-seo').then((mod) => {
+      setNextSeo(() => mod.NextSeo);
+    });
+  }, []);
+
+  if (!NextSeo) return null;
   return <NextSeo {...finalSeoConfig} />;
 }
 
