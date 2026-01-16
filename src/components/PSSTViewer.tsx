@@ -11,8 +11,8 @@ interface PSSTViewerProps {
  * PSST 사업계획서 뷰어 컴포넌트
  * PSST 구조에 맞춰 사업계획서를 표시합니다.
  */
-export default function PSSTViewer({ document }: PSSTViewerProps) {
-  const { problem, solution, scaleUp, team, metadata } = document;
+export default function PSSTViewer({ document: psstDocument }: PSSTViewerProps) {
+  const { problem, solution, scaleUp, team, metadata } = psstDocument;
   const [downloading, setDownloading] = useState(false);
   const [downloadError, setDownloadError] = useState<string | null>(null);
 
@@ -26,7 +26,7 @@ export default function PSSTViewer({ document }: PSSTViewerProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ document }),
+        body: JSON.stringify({ document: psstDocument }),
       });
 
       if (!response.ok) {

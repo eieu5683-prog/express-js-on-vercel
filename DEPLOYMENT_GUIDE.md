@@ -76,16 +76,19 @@ vercel
 
 #### 3. 환경 변수 설정
 
-Settings → Environment Variables에서 다음 변수 추가:
+**Settings → Environment Variables** 섹션을 펼치고 다음 변수들을 추가합니다:
 
-```
-OPENAI_API_KEY=sk-proj-실제_키_입력
-NEXT_PUBLIC_TOSS_CLIENT_KEY=test_ck_실제_키_입력
-NEXT_PUBLIC_BASE_URL=https://narat-don-navi.vercel.app
-SITE_URL=https://narat-don-navi.vercel.app
-```
+| Name | Value | 환경 | 설명 |
+|------|-------|------|------|
+| `OPENAI_API_KEY` | `sk-proj-실제_키_입력` | Production | OpenAI API 키 (서버 사이드 전용) |
+| `TOSS_SECRET_KEY` | `시크릿_키_입력` | Production | 토스페이먼츠 시크릿 키 (서버 사이드 전용) |
+| `NEXT_PUBLIC_TOSS_CLIENT_KEY` | `test_ck_실제_키_입력` | Production | 토스페이먼츠 클라이언트 키 |
+| `NEXT_PUBLIC_BASE_URL` | `https://your-project.vercel.app` | All | 웹사이트 기본 URL |
+| `SITE_URL` | `https://your-project.vercel.app` | All | Sitemap 생성용 URL |
 
-**중요:**
+**⚠️ 보안 주의사항:**
+- `OPENAI_API_KEY`와 `TOSS_SECRET_KEY`는 **절대** `NEXT_PUBLIC_` 접두사를 붙이지 마세요!
+- 이 키들은 서버 사이드에서만 사용되며, 클라이언트에 노출되면 안 됩니다.
 - Production, Preview, Development 각각 설정 가능
 - Production 환경에만 실제 키 설정 권장
 
@@ -97,12 +100,20 @@ SITE_URL=https://narat-don-navi.vercel.app
 
 ### 필수 환경 변수
 
-| 변수명 | 설명 | 예시 |
-|--------|------|------|
-| `OPENAI_API_KEY` | OpenAI API 키 (서버 사이드) | `sk-proj-...` |
-| `NEXT_PUBLIC_TOSS_CLIENT_KEY` | 토스페이먼츠 클라이언트 키 | `test_ck_...` |
-| `NEXT_PUBLIC_BASE_URL` | 웹사이트 기본 URL | `https://narat-don-navi.vercel.app` |
-| `SITE_URL` | 사이트 URL (sitemap용) | `https://narat-don-navi.vercel.app` |
+| 변수명 | 설명 | 예시 | 보안 |
+|--------|------|------|------|
+| `OPENAI_API_KEY` | OpenAI API 키 (서버 사이드 전용) | `sk-proj-...` | 🔒 서버 전용 |
+| `TOSS_SECRET_KEY` | 토스페이먼츠 시크릿 키 (서버 사이드 전용) | `test_sk_...` | 🔒 서버 전용 |
+| `NEXT_PUBLIC_TOSS_CLIENT_KEY` | 토스페이먼츠 클라이언트 키 | `test_ck_...` | ⚠️ 클라이언트 노출 가능 |
+| `NEXT_PUBLIC_BASE_URL` | 웹사이트 기본 URL | `https://narat-don-navi.vercel.app` | ✅ 공개 가능 |
+| `SITE_URL` | 사이트 URL (sitemap용) | `https://narat-don-navi.vercel.app` | ✅ 공개 가능 |
+
+**🔒 서버 전용 변수:**
+- `OPENAI_API_KEY`: API 라우트(`/api/generate-psst`)에서만 사용
+- `TOSS_SECRET_KEY`: 결제 검증 등 서버 사이드에서만 사용
+
+**⚠️ 클라이언트 노출 변수:**
+- `NEXT_PUBLIC_TOSS_CLIENT_KEY`: 클라이언트에서 결제창 호출 시 사용
 
 ### 선택적 환경 변수
 
@@ -301,10 +312,12 @@ jobs:
 배포 전 확인:
 
 - [ ] `.env.local` 파일이 Git에 커밋되지 않음
-- [ ] `OPENAI_API_KEY`가 `NEXT_PUBLIC_` 접두사 없이 설정됨
+- [ ] `OPENAI_API_KEY`가 `NEXT_PUBLIC_` 접두사 **없이** 설정됨
+- [ ] `TOSS_SECRET_KEY`가 `NEXT_PUBLIC_` 접두사 **없이** 설정됨
 - [ ] 프로덕션 환경 변수가 올바르게 설정됨
 - [ ] API 라우트에 적절한 에러 처리 구현됨
 - [ ] 민감한 정보가 클라이언트에 노출되지 않음
+- [ ] Vercel 환경 변수에서 Production 환경에만 실제 키 설정됨
 
 ## 참고 자료
 

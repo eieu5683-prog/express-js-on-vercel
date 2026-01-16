@@ -8,6 +8,10 @@
 import { GrantSchedule, YearlySchedule, ScheduleInfo } from './types';
 import { Grade } from './types';
 
+// 타입 re-export (다른 파일에서 사용 가능하도록)
+export type { GrantSchedule, YearlySchedule, ScheduleInfo } from './types';
+export type { Grade } from './types';
+
 /**
  * 지원금/세무 일정 데이터베이스 (새로운 형식)
  * 

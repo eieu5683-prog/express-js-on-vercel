@@ -75,9 +75,6 @@ export const generateDynamicSEO = ({
     },
     twitter: {
       cardType: 'summary_large_image',
-      title: seoTitle,
-      description: seoDescription,
-      image: imageUrl || `${baseUrl}/og-image.jpg`,
     },
     additionalMetaTags: [
       {

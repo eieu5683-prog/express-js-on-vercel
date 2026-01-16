@@ -13,7 +13,7 @@
  * 3. 엑셀 데이터 붙여넣기
  */
 
-import { KsicInfo } from './types';
+import { KsicInfo, Grade } from './types';
 
 /**
  * KSIC 업종코드 데이터베이스

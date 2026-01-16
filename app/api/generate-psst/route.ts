@@ -6,9 +6,9 @@ import {
   generateMasterUserPrompt,
 } from '@/src/configs/master-prompt';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// 빌드 타임에 실행되지 않도록 설정
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 /**
  * PSST 리포트 생성 API
@@ -39,7 +39,8 @@ export async function POST(req: Request) {
     }
 
     // OpenAI API 키 확인 (서버 사이드 전용)
-    if (!process.env.OPENAI_API_KEY) {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
       // 서버 로그에만 기록 (클라이언트에 노출하지 않음)
       console.error('[SECURITY] OPENAI_API_KEY가 설정되지 않았습니다.');
       return NextResponse.json(
@@ -53,6 +54,11 @@ export async function POST(req: Request) {
     if (process.env.NEXT_PUBLIC_OPENAI_API_KEY) {
       console.warn('[SECURITY WARNING] NEXT_PUBLIC_OPENAI_API_KEY가 설정되어 있습니다. 이는 보안 위험입니다!');
     }
+
+    // OpenAI 클라이언트 초기화 (런타임에만 실행)
+    const openai = new OpenAI({
+      apiKey: apiKey,
+    });
 
     // 1. 사장님의 엑셀 데이터(전문가 솔루션) 가져오기
     const expertData = KSIC_DB[ksicCode];
