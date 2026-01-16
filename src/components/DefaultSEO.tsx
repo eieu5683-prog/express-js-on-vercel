@@ -9,15 +9,19 @@ import { NEXT_SEO_DEFAULT } from '@/src/configs/seo.config';
  */
 export default function DefaultSEO() {
   const [DefaultSeo, setDefaultSeo] = useState<any>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    // 클라이언트에서만 실행
+    setIsClient(true);
     // 클라이언트에서만 next-seo 로드
     import('next-seo').then((mod) => {
       setDefaultSeo(() => mod.DefaultSeo);
     });
   }, []);
 
-  if (!DefaultSeo) return null;
+  // 빌드 타임에는 렌더링하지 않음
+  if (!isClient || !DefaultSeo) return null;
   return <DefaultSeo {...NEXT_SEO_DEFAULT} />;
 }
 
