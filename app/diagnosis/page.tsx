@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import JSONLD from '@/src/components/JSONLD';
 import PSSTLocked from '@/src/components/PSSTLocked';
@@ -14,7 +14,7 @@ import { PSSTDocument } from '@/src/types/psst';
 import ScheduleBadge, { ScheduleList } from '@/src/components/ScheduleBadge';
 import { getSchedulesByGrade, getGrantSchedulesByMonth } from '@/src/data/scheduleData';
 
-export default function DiagnosisPage() {
+function DiagnosisContent() {
   const searchParams = useSearchParams();
   const ksicCode = searchParams.get('code') || '';
   const industryName = searchParams.get('industry') || undefined;
@@ -201,6 +201,14 @@ export default function DiagnosisPage() {
         )}
       </main>
     </>
+  );
+}
+
+export default function DiagnosisPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DiagnosisContent />
+    </Suspense>
   );
 }
 

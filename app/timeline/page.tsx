@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { GRANT_SCHEDULE, GrantSchedule } from '@/src/data/scheduleData';
 import { KSIC_DB, getKsicInfo } from '@/src/data/ksicData';
@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const dynamic = 'force-dynamic';
 
-export default function TimelinePage() {
+function TimelineContent() {
   const searchParams = useSearchParams();
   const [selectedItem, setSelectedItem] = useState<GrantSchedule | null>(null);
   const [activeYear, setActiveYear] = useState(2026);
@@ -356,6 +356,14 @@ function TimelineCard({
         </a>
       )}
     </motion.div>
+  );
+}
+
+export default function TimelinePage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TimelineContent />
+    </Suspense>
   );
 }
 

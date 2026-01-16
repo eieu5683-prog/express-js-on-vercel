@@ -1,12 +1,13 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import JSONLD from '@/src/components/JSONLD';
 import PSSTGenerator from '@/src/components/PSSTGenerator';
 
 export const dynamic = 'force-dynamic';
 
-export default function ReportPage() {
+function ReportContent() {
   const searchParams = useSearchParams();
   const industryName = searchParams.get('industry') || undefined;
 
@@ -41,6 +42,14 @@ export default function ReportPage() {
         </section>
       </main>
     </>
+  );
+}
+
+export default function ReportPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ReportContent />
+    </Suspense>
   );
 }
 

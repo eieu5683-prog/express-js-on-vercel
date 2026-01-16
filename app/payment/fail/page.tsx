@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -9,7 +10,7 @@ export const dynamic = 'force-dynamic';
  * 결제 실패 페이지
  * 토스페이먼츠 결제 실패 시 리다이렉트되는 페이지
  */
-export default function PaymentFailPage() {
+function PaymentFailContent() {
   const searchParams = useSearchParams();
   const ksicCode = searchParams.get('code') || '';
   const errorCode = searchParams.get('code') || '';
@@ -59,6 +60,14 @@ export default function PaymentFailPage() {
         </div>
       </main>
     </>
+  );
+}
+
+export default function PaymentFailPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PaymentFailContent />
+    </Suspense>
   );
 }
 

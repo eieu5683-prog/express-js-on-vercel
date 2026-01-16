@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import JSONLD from '@/src/components/JSONLD';
 import CopyButton from '@/src/components/CopyButton';
@@ -22,7 +22,7 @@ interface ReportData {
   error?: string;
 }
 
-export default function ReportViewPage() {
+function ReportViewContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const ksicCode = searchParams.get('code') || '';
@@ -278,5 +278,13 @@ function LoadingSpinner() {
         잠시만 기다려주세요. 고품질 리포트를 생성하고 있습니다.
       </p>
     </main>
+  );
+}
+
+export default function ReportViewPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ReportViewContent />
+    </Suspense>
   );
 }
