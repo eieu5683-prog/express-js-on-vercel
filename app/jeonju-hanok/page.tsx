@@ -4,6 +4,8 @@ import { NextSeo } from 'next-seo';
 import { generateDynamicSEO } from '@/lib/seo';
 import JSONLD from '@/src/components/JSONLD';
 
+export const dynamic = 'force-dynamic';
+
 export default function JeonjuHanokPage() {
   const seoConfig = generateDynamicSEO({
     title: '전주 한옥마을 에어비앤비 리모델링 지원금 및 게스트하우스 정책자금',

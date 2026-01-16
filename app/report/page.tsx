@@ -5,6 +5,8 @@ import DynamicSEO from '@/src/components/DynamicSEO';
 import JSONLD from '@/src/components/JSONLD';
 import PSSTGenerator from '@/src/components/PSSTGenerator';
 
+export const dynamic = 'force-dynamic';
+
 export default function ReportPage() {
   const searchParams = useSearchParams();
   const industryName = searchParams.get('industry') || undefined;

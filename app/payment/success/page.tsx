@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import DynamicSEO from '@/src/components/DynamicSEO';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * 결제 성공 페이지
  * 토스페이먼츠 결제 성공 후 리다이렉트되는 페이지

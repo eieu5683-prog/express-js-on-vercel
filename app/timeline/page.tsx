@@ -7,6 +7,8 @@ import { KSIC_DB, getKsicInfo } from '@/src/data/ksicData';
 import DynamicSEO from '@/src/components/DynamicSEO';
 import { motion, AnimatePresence } from 'framer-motion';
 
+export const dynamic = 'force-dynamic';
+
 export default function TimelinePage() {
   const searchParams = useSearchParams();
   const [selectedItem, setSelectedItem] = useState<GrantSchedule | null>(null);

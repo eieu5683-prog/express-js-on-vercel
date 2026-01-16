@@ -8,6 +8,8 @@ import PSSTLocked from '@/src/components/PSSTLocked';
 import PSSTViewer from '@/src/components/PSSTViewer';
 import { getKsicInfo } from '@/src/data/ksicData';
 import { canAccessPSST } from '@/src/lib/payment';
+
+export const dynamic = 'force-dynamic';
 import { convertPSSTContentToDocument } from '@/src/lib/psst-converter';
 import { PSSTDocument } from '@/src/types/psst';
 import ScheduleBadge, { ScheduleList } from '@/src/components/ScheduleBadge';

@@ -3,6 +3,8 @@
 import { NextSeo } from 'next-seo'
 import { seoPresets } from '@/lib/seo'
 
+export const dynamic = 'force-dynamic'
+
 export default function GovernmentSupportPage() {
   return (
     <>

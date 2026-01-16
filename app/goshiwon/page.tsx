@@ -4,6 +4,8 @@ import { NextSeo } from 'next-seo';
 import { generateDynamicSEO } from '@/lib/seo';
 import JSONLD from '@/src/components/JSONLD';
 
+export const dynamic = 'force-dynamic';
+
 export default function GoshiwonPage() {
   const seoConfig = generateDynamicSEO({
     title: '무인 고시원 창업 자금 지원 및 고시원 시설 개선 정부지원금',

@@ -8,6 +8,8 @@ import CopyButton from '@/src/components/CopyButton';
 import { getKsicInfo } from '@/src/data/ksicData';
 import { canAccessPSST, savePaymentStatus } from '@/src/lib/payment';
 
+export const dynamic = 'force-dynamic';
+
 interface ReportData {
   success: boolean;
   data?: string;

@@ -1,8 +1,15 @@
-# https://www.robotstxt.org/robotstxt.html
+# *
 User-agent: *
 Allow: /
+
+# *
+User-agent: *
 Disallow: /api/
 Disallow: /admin/
 
-Sitemap: https://narat-don-navi.com/sitemap.xml
+# Host
+Host: https://narat-don-navi.com
 
+# Sitemaps
+Sitemap: https://narat-don-navi.com/sitemap.xml
+Sitemap: https://narat-don-navi.com/server-sitemap-index.xml

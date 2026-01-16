@@ -3,6 +3,8 @@
 import DynamicSEO from '@/src/components/DynamicSEO'
 import JSONLD from '@/src/components/JSONLD'
 
+export const dynamic = 'force-dynamic'
+
 export default function Home() {
   return (
     <>

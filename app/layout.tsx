@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description: '단돈 39,000원으로 1억 원의 기회를 잡으세요. 업종코드 분석을 통한 맞춤형 지원금 로드맵 제공.',
 }
 
+// 모든 페이지를 동적 렌더링으로 설정 (next-seo 호환성)
+export const dynamic = 'force-dynamic'
+
 export default function RootLayout({
   children,
 }: {

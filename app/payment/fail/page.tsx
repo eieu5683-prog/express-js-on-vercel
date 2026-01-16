@@ -4,6 +4,8 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import DynamicSEO from '@/src/components/DynamicSEO';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * 결제 실패 페이지
  * 토스페이먼츠 결제 실패 시 리다이렉트되는 페이지

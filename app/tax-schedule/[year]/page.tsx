@@ -4,6 +4,8 @@ import { NextSeo } from 'next-seo'
 import { seoPresets } from '@/lib/seo'
 import { use } from 'react'
 
+export const dynamic = 'force-dynamic'
+
 interface PageProps {
   params: Promise<{ year: string }>
 }
