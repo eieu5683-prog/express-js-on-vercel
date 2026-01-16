@@ -1,29 +1,12 @@
 'use client';
 
-import NextSeoWrapper from '@/src/components/NextSeoWrapper';
-import { generateDynamicSEO } from '@/lib/seo';
 import JSONLD from '@/src/components/JSONLD';
 
 export const dynamic = 'force-dynamic';
 
 export default function JeonjuHanokPage() {
-  const seoConfig = generateDynamicSEO({
-    title: '전주 한옥마을 에어비앤비 리모델링 지원금 및 게스트하우스 정책자금',
-    description:
-      '전주 한옥마을 에어비앤비 리모델링 지원금과 게스트하우스 정책자금 신청 방법을 확인하세요. 한옥마을 숙박업 특화 지원금 정보를 제공합니다.',
-    path: '/jeonju-hanok',
-    keywords: [
-      '전주 한옥마을 에어비앤비 리모델링 지원금',
-      '한옥마을 게스트하우스 정책자금',
-      '전주 한옥마을 숙박업 지원금',
-      '한옥 리모델링 정부지원금',
-      '게스트하우스 창업 지원금',
-    ],
-  });
-
   return (
     <>
-      <NextSeoWrapper {...seoConfig} />
       <JSONLD
         type="Article"
         data={{

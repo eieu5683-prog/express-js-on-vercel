@@ -1,7 +1,6 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import DynamicSEO from '@/src/components/DynamicSEO';
 import JSONLD from '@/src/components/JSONLD';
 import PSSTGenerator from '@/src/components/PSSTGenerator';
 
@@ -13,7 +12,6 @@ export default function ReportPage() {
 
   return (
     <>
-      <DynamicSEO pageType="REPORT" industryName={industryName} />
       <JSONLD
         type="Product"
         data={{

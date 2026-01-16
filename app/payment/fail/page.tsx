@@ -2,7 +2,6 @@
 
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import DynamicSEO from '@/src/components/DynamicSEO';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,12 +17,6 @@ export default function PaymentFailPage() {
 
   return (
     <>
-      <DynamicSEO
-        pageType="MAIN"
-        customTitle="결제 실패"
-        customDescription="결제 처리 중 오류가 발생했습니다."
-        path="/payment/fail"
-      />
       <main className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-8">
         <div className="max-w-md w-full bg-slate-900 border border-red-500/30 rounded-2xl p-8 text-center space-y-6">
           <div className="text-6xl mb-4">❌</div>

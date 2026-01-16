@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import DynamicSEO from '@/src/components/DynamicSEO';
 import JSONLD from '@/src/components/JSONLD';
 import CopyButton from '@/src/components/CopyButton';
 import { getKsicInfo } from '@/src/data/ksicData';
@@ -104,7 +103,6 @@ export default function ReportViewPage() {
   if (loading) {
     return (
       <>
-        <DynamicSEO pageType="REPORT" industryName={ksicInfo?.name} />
         <LoadingSpinner />
       </>
     );
@@ -113,7 +111,6 @@ export default function ReportViewPage() {
   if (error) {
     return (
       <>
-        <DynamicSEO pageType="REPORT" industryName={ksicInfo?.name} />
         <main className="min-h-screen bg-slate-950 text-slate-100 p-8">
           <div className="max-w-4xl mx-auto">
             <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
@@ -135,7 +132,6 @@ export default function ReportViewPage() {
   if (!reportData || !reportData.data) {
     return (
       <>
-        <DynamicSEO pageType="REPORT" industryName={ksicInfo?.name} />
         <main className="min-h-screen bg-slate-950 text-slate-100 p-8">
           <div className="max-w-4xl mx-auto">
             <p className="text-slate-400">리포트 데이터가 없습니다.</p>
@@ -147,7 +143,6 @@ export default function ReportViewPage() {
 
   return (
     <>
-      <DynamicSEO pageType="REPORT" industryName={ksicInfo?.name} />
       <JSONLD
         type="Product"
         data={{

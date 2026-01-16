@@ -1,29 +1,12 @@
 'use client';
 
-import NextSeoWrapper from '@/src/components/NextSeoWrapper';
-import { generateDynamicSEO } from '@/lib/seo';
 import JSONLD from '@/src/components/JSONLD';
 
 export const dynamic = 'force-dynamic';
 
 export default function GoshiwonPage() {
-  const seoConfig = generateDynamicSEO({
-    title: '무인 고시원 창업 자금 지원 및 고시원 시설 개선 정부지원금',
-    description:
-      '무인 고시원 창업 자금 지원과 고시원 시설 개선 정부지원금 신청 방법을 확인하세요. 프리미엄 고시원 자동화 모델에 특화된 지원금 정보를 제공합니다.',
-    path: '/goshiwon',
-    keywords: [
-      '무인 고시원 창업 자금 지원',
-      '고시원 시설 개선 정부지원금',
-      '프리미엄 고시원 자동화',
-      '고시원 창업 지원금',
-      '무인 고시원 정책자금',
-    ],
-  });
-
   return (
     <>
-      <NextSeoWrapper {...seoConfig} />
       <JSONLD
         type="Article"
         data={{

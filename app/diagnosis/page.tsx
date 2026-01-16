@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import DynamicSEO from '@/src/components/DynamicSEO';
 import JSONLD from '@/src/components/JSONLD';
 import PSSTLocked from '@/src/components/PSSTLocked';
 import PSSTViewer from '@/src/components/PSSTViewer';
@@ -72,7 +71,6 @@ export default function DiagnosisPage() {
 
   return (
     <>
-      <DynamicSEO pageType="DIAGNOSIS" industryName={industryName || ksicInfo?.name} />
       <JSONLD
         type="Product"
         data={{

@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import DynamicSEO from '@/src/components/DynamicSEO';
 
 export const dynamic = 'force-dynamic';
 
@@ -33,12 +32,6 @@ export default function PaymentSuccessPage() {
 
   return (
     <>
-      <DynamicSEO
-        pageType="MAIN"
-        customTitle="결제 완료"
-        customDescription="결제가 완료되었습니다. 리포트를 생성 중입니다..."
-        path="/payment/success"
-      />
       <main className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-8">
         <div className="text-center space-y-4">
           <div className="text-6xl mb-4">✅</div>

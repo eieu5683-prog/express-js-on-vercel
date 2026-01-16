@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { GRANT_SCHEDULE, GrantSchedule } from '@/src/data/scheduleData';
 import { KSIC_DB, getKsicInfo } from '@/src/data/ksicData';
-import DynamicSEO from '@/src/components/DynamicSEO';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const dynamic = 'force-dynamic';
@@ -76,12 +75,6 @@ export default function TimelinePage() {
 
   return (
     <>
-      <DynamicSEO
-        pageType="MAIN"
-        customTitle={`${activeYear}년 월별 지원금 & 세무 타임라인`}
-        customDescription={`${activeYear}년 사업자용 세금 캘린더와 정부 지원금 공고 일정을 한눈에 확인하세요. 놓치면 안 되는 주요 지원금 및 세무 일정을 타임라인으로 제공합니다.`}
-        path="/timeline"
-      />
       <main className="min-h-screen bg-slate-950 text-slate-100 pb-20">
         {/* SEO용 헤더 */}
         <div className="p-6 bg-slate-900 border-b border-slate-800 sticky top-0 z-20">
