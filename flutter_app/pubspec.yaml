@@ -1,0 +1,22 @@
+name: narat_don_navi_app
+description: 나랏돈네비 모바일 앱 - 정부지원금 진단 및 사업계획서 생성 서비스
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.4.2  # 웹뷰 엔진
+  url_launcher: ^6.2.1      # 토스/은행 앱 실행용
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
